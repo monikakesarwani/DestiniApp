@@ -48,8 +48,8 @@ class ViewController: UIViewController {
         
         // TODO Step 3: Set the text for the storyTextView, topButton, bottomButton, and to T1_Story, T1_Ans1, and T1_Ans2
         storyTextView.text = story1
-    //topButton.setTitle(answer1a, for: .normal)
-//        bottomButton.setTitle(answer1b, for: .normal)
+        topButton.setTitle(answer1a, for: .normal)
+        bottomButton.setTitle(answer1b, for: .normal)
     }
 
     
@@ -63,16 +63,40 @@ class ViewController: UIViewController {
         
 //        We can do this by checking sender.tag, if sender.tag == 1, the user must have pressed the topButton and if sender.tag == 2 then the user must have pressed the bottomButton.
 //
-        if sender.tag == 1{
-            topButton.setTitle(answer1a, for: .normal)
-        } else{
-            bottomButton.setTitle(answer1b, for: .normal)
-        }
-        
-        if storyIndex > 3 && storyIndex < 5{
+        if sender.tag == 1 && storyIndex == 1 || storyIndex == 2 {
+            storyTextView.text = story3
+            topButton.setTitle(answer3a, for: .normal)
+            bottomButton.setTitle(answer3b, for: .normal)
+            
+        }else if sender.tag == 1 && storyIndex == 3 {
+            storyTextView.text = story6
+            topButton.isHidden = true
+            bottomButton.isHidden = true
+        } else if sender.tag == 2 && storyIndex == 3{
+            storyTextView.text = story5
+            topButton.isHidden = true
+            bottomButton.isHidden = true
+            
+        } else if sender.tag == 2 && storyIndex == 1{
+            storyTextView.text = story2
+            topButton.setTitle(answer2a, for: .normal)
+            bottomButton.setTitle(answer2b, for: .normal)
+            storyIndex = 3
+        } else if sender.tag == 1 && storyIndex == 2{
+            storyTextView.text = story2
+            topButton.setTitle(answer2a, for: .normal)
+            bottomButton.setTitle(answer2b, for: .normal)
+        } else if sender.tag == 2 && storyIndex == 2{
+            storyTextView.text = story4
+            topButton.isHidden = true
+            bottomButton.isHidden = true
             
         }
+        
+        
     }
+    
+    
     
     
 
